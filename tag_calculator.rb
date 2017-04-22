@@ -17,6 +17,8 @@ class TagCalculator
 
 	def calculate_tags(hash)
 		mapping = {}
+		sortedmapping = {}
+
 		count = 0
 		hash.each_with_index do |element, index|
 			p count
@@ -41,7 +43,12 @@ class TagCalculator
 			end
 			count = count + 1
 		end
-		mapping
+
+		mapping.each do |element, values|
+			sorted_values = values.sort_by {|_key, value| -value}.first(20).to_h
+			sortedmapping[element] = sorted_values
+		end
+		sortedmapping
 	end
 
 end
