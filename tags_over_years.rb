@@ -1,7 +1,7 @@
 require 'json'
 require 'pry'
 
-class LimitedTagCalculator
+class TagsOverYearsCalculator
 
   @@languages = ["ruby", "javascript", "c#", "c", "c++", "python", "java", "scala", "php", "objective-c", "swift", "r", "perl", "go", "haskell", "elixir", "erlang", "rust"]
 
@@ -53,4 +53,4 @@ class LimitedTagCalculator
 
 end
 
-tag_calculator = LimitedTagCalculator.new
+tags_over_years_calculator = TagsOverYearsCalculator.new
