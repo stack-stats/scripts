@@ -42,12 +42,16 @@ class LocationReputation
 
     mapping.each do |element, values|
       sorted_values = values.sort_by {|_key, value| -value}
-      chunked_values = sorted_values.each_slice(50).to_a
+      chunked_values = sorted_values.each_slice(20).to_a
       count = 1
       chunked_values.each_with_index do |element, index|
-        name = "#{(count)} to #{count + 49}"
+        name = "#{(count)} to #{count + 19}"
         sortedmapping[name] = element.to_h
-        count = count + 50
+        count = count + 20
+
+        if index == 20
+          break
+        end
       end
     end
     sortedmapping
